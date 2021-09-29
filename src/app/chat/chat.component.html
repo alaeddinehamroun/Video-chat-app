@@ -1,0 +1,15 @@
+
+<div class="row mx-0 h-100" style="position: relative;">
+    <div class="row p-2 mx-3" style="position: absolute; z-index: 1;"> 
+        <button class="btn btn-default" [disabled]="isCallStarted$ | async" (click)="showModal(false)">Start Call</button>
+        <button class="btn btn-primary" [disabled]="isCallStarted$ | async" (click)="showModal(true)">Join Call</button>
+        <button class="btn btn-danger" [disabled]="!(isCallStarted$ | async)" (click)="endCall()">End Call</button>
+    </div>
+    <div class="col-md-6 text-center px-0">
+        <video #remoteVideo id="video" autoplay playsinline></video>
+    </div>
+    <div class="col-md-6 text-center px-0">
+        <video #localVideo id="video" autoplay playsinline [muted]=true></video>
+    </div>
+
+</div>
